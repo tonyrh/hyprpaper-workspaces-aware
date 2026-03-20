@@ -9,4 +9,5 @@ function handle {
     fi
 }
 
-socat - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock >> /home/antonio/output.log 2>&1 | while read line; do handle $line; done
+socat - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock \
+  | while read line; do handle "$line"; done
